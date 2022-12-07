@@ -44,27 +44,28 @@ function App() {
           </div>
           {isMenuActive && (
             <div className="w-72 bg-black min-h-screen dark:bg-main-dark-bg fixed sidebar text-white">
-              <div className="navbar md:static w-full bg-main-bg dark:bg-main-dark-bg fixed">
+              {/* <div className="navbar md:static w-full bg-main-bg dark:bg-main-dark-bg fixed">
                 <Navbar />
-              </div>
+              </div> */}
+              <Sidebar />
               <div>
                 <Routes>
-                  {/* dashboard  */}
+                  {/* DASHBOARD  */}
                   <Route path="/" element={(<Ecommerce />)} />
                   <Route path="/ecommerce" element={(<Ecommerce />)} />
 
-                  {/* pages  */}
+                  {/* PAGES  */}
                   <Route path="/orders" element={<Orders />} />
                   <Route path="/employees" element={<Employees />} />
                   <Route path="/customers" element={<Customers />} />
 
-                  {/* apps  */}
+                  {/* APPS  */}
                   <Route path="/kanban" element={<Kanban />} />
                   <Route path="/editor" element={<Editor />} />
                   <Route path="/calendar" element={<Calendar />} />
                   <Route path="/color-picker" element={<ColorPicker />} />
 
-                  {/* charts  */}
+                  {/* CHARTS  */}
                   <Route path="/line" element={<Line />} />
                   <Route path="/area" element={<Area />} />
                   <Route path="/bar" element={<Bar />} />
