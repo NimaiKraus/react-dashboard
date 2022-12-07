@@ -4,15 +4,25 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Link, NavLink } from "react-router-dom";
 import { SiShopware } from "react-icons/si";
 import { MdOutlineCancel as CloseIcon } from "react-icons/md";
+import { useStateContext } from "../contexts/stateContexts";
 
 function Sidebar() {
-  const activeMenu = true;
+  const { isMenuActive, setIsMenuActive, screenSize } = useStateContext();
+  const handleCloseSidebar = () => {
+    if (isMenuActive && screenSize <= 900) {
+      setIsMenuActive(false);
+    } else {
+      setIsMenuActive(true);
+    }
+  }
+
   return (
     <>
       <div id="sidebar-div" className="flex justify-between items-center">
         <Link
           className="flex mt-3 ml-3 font-extrabold items-center text-2xl"
           to={"/"}
+          onClick={handleCloseSidebar}
         >
           <SiShopware />
           <span className="ml-1"> Shoppy</span>
@@ -21,7 +31,7 @@ function Sidebar() {
           <CloseIcon
             className="text-2xl mr-3 mt-3 cursor-pointer"
             onClick={() => {
-              console.log("Close menu");
+              setIsMenuActive(false);
             }}
           />
         </TooltipComponent>
@@ -38,8 +48,8 @@ function Sidebar() {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
-                    className="flex items-center ml-3 my-3 font-semibold capitalize"
-                    onClick={() => {}}
+                    className="flex items-center ml-3 my-3 font-semibold capitalize hover:bg-slate-700"
+                    onClick={handleCloseSidebar}
                   >
                     {link.icon}
                     {link.name}

@@ -26,8 +26,11 @@ import {
   ColorMapping,
   Editor,
 } from "./pages/pages_index";
+
+import { useStateContext } from "./contexts/stateContexts";
+
 function App() {
-  const isMenuActive = true;
+  const { isMenuActive, setIsMenuActive } = useStateContext();
   return (
     <div>
       <BrowserRouter>
@@ -42,17 +45,18 @@ function App() {
               </button>
             </TooltipComponent>
           </div>
+          <div className="navbar md:static w-full bg-main-bg dark:bg-main-dark-bg fixed">
+            <Navbar />
+          </div>
+
           {isMenuActive && (
             <div className="w-72 bg-black min-h-screen dark:bg-main-dark-bg fixed sidebar text-white">
-              {/* <div className="navbar md:static w-full bg-main-bg dark:bg-main-dark-bg fixed">
-                <Navbar />
-              </div> */}
               <Sidebar />
               <div>
                 <Routes>
                   {/* DASHBOARD  */}
-                  <Route path="/" element={(<Ecommerce />)} />
-                  <Route path="/ecommerce" element={(<Ecommerce />)} />
+                  <Route path="/" element={<Ecommerce />} />
+                  <Route path="/ecommerce" element={<Ecommerce />} />
 
                   {/* PAGES  */}
                   <Route path="/orders" element={<Orders />} />
