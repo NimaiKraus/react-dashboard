@@ -1,13 +1,13 @@
 import React from "react";
 import { links } from "../data/dummy";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+import { MdOutlineCancel as CloseIcon } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { SiShopware } from "react-icons/si";
-import { MdOutlineCancel as CloseIcon } from "react-icons/md";
 import { useStateContext } from "../contexts/stateContexts";
 
 function Sidebar() {
-  const { isMenuActive, setIsMenuActive, screenSize } = useStateContext();
+  const { isMenuActive, setIsMenuActive, screenSize, currentColor } = useStateContext();
   const handleCloseSidebar = () => {
     if (isMenuActive && screenSize <= 900) {
       setIsMenuActive(false);
@@ -18,7 +18,7 @@ function Sidebar() {
 
   return (
     <>
-      <div id="sidebar-div" className="flex justify-between items-center">
+      <div id="sidebar-div" className="flex justify-between items-center dark:text-gray-200">
         <Link
           className="flex mt-3 ml-3 font-extrabold items-center text-2xl"
           to={"/"}
@@ -48,7 +48,10 @@ function Sidebar() {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
-                    className="flex items-center ml-3 my-3 font-semibold capitalize hover:bg-slate-700"
+                    style={({isActive}) => ({
+                      backgroundColor: isActive ? currentColor : ""
+                    })}
+                    className="flex items-center rounded-md p-1 ml-3 mr-3 my-3 font-semibold capitalize hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-500"
                     onClick={handleCloseSidebar}
                   >
                     {link.icon}

@@ -1,8 +1,16 @@
 import React from 'react'
 
-function Button() {
+function Button({ size, color, bgColor, text, borderRadius }) {
   return (
-    <div>Button</div>
+    <button
+    style={{ 
+      color, backgroundColor: bgColor, borderRadius, marginTop:"12px"
+    }}
+    className={`text-${size}, p-2`}
+    type="button"
+    >
+      {text}
+    </button>
   )
 }
 
