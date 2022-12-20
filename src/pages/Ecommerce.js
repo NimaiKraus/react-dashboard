@@ -24,7 +24,7 @@ function Ecommerce() {
     <>
       <div className="mt-12">
         <div className="flex flex-wrap lg:flex-nowrap">
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-no-repeat bg-cover bg-center bg-hero-pattern"/>
+          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 lg:mt-7 lg:ml-7 p-8 pt-9 m-3 bg-no-repeat bg-cover bg-center bg-hero-pattern"/>
           <div className="flex flex-wrap mt-6 justify-center items-center gap-1 m-3">
             {earningData.map((item) => (
               <div
