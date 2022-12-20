@@ -45,7 +45,7 @@ function App() {
             </TooltipComponent>
           </div>
           {isMenuActive && (
-            <div className="w-72 bg-main-bg min-h-screen dark:bg-main-dark-bg sidebar">
+            <div className="w-72 bg-main-bg min-h-screen dark:bg-main-dark-bg sidebar dark:border-r-1">
               <Sidebar />
             </div>
           )}
@@ -84,6 +84,7 @@ function App() {
               <Route path="/pyramid" element={<Pyramid />} />
               <Route path="/stacked" element={<Stacked />} />
             </Routes>
+            <Footer />  
           </div>
         </div>
       </BrowserRouter>
